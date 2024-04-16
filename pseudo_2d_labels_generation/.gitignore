@@ -1,0 +1,7 @@
+bbox_inference
+kpt2d_inference
+group_train_cam5_pseudo.pkl
+image_info_train_panoptic.json
+pseudo_bboxes_panoptic.json
+pseudo_kpt2d_panoptic.json
+*.pkl
