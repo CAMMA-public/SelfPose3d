@@ -48,8 +48,8 @@ Sample output of __*SelfPose3d*__ showing the inference on the CMU panoptic data
 1. Download the dataset by following the instructions in [panoptic-toolbox](https://github.com/CMU-Perceptual-Computing-Lab/panoptic-toolbox) and extract them under `${POSE_ROOT}/data/panoptic_toolbox/data`.
 - You can only download those sequences you need. You can also just download a subset of camera views by specifying the number of views (HD_Video_Number) and changing the camera order in `./scripts/getData.sh`. The sequences and camera views used in our project can be obtained from our paper.
 - Note that we only use HD videos,  calibration data, and 3D Body Keypoint in the codes. You can comment out other irrelevant codes such as downloading 3D Face data in `./scripts/getData.sh`.
-2. Download the pretrained backbone model from [pretrained backbone](update the download link afterwards) and place it here: `${POSE_ROOT}/models/pose_resnet_50_384x288.pth`. 
-3. Download the uploaded the pseudo 2d labels of CMU Panoptic dataset (update the download link afterwards) and place them under: `${POSE_ROOT}/data/panoptic_toolbox/data`. 
+2. Download the pretrained backbone model from [trained models and pseudo labels](https://github.com/CAMMA-public/SelfPose3d?tab=readme-ov-file#trained-models-and-pseudo-labels) and place it here: `${POSE_ROOT}/models/pose_resnet_50_384x288.pth`. 
+3. Download the pseudo 2d labels of CMU Panoptic dataset from [trained models and pseudo labels](https://github.com/CAMMA-public/SelfPose3d?tab=readme-ov-file#trained-models-and-pseudo-labels) and place them under: `${POSE_ROOT}/data/panoptic_toolbox/data`. 
 
 ### Trained models and pseudo labels
 Download the trained models and the pseudo 2d labels as follows. You can also follow [pseudo_2d_labels_generation](./pseudo_2d_labels_generation/README.md) to generate the pseudo 2d labels. 
@@ -63,7 +63,10 @@ The directory tree should look like this:
 ```
 ${POSE_ROOT}
 |-- models
-|   |-- pose_resnet50_panoptic.pth.tar
+|   |-- pose_resnet_50_384x288.pth
+|   |-- cam5_rootnet_epoch2.pth.tar
+|   |-- cam5_posenet.pth.tar
+|   |-- backbone_epoch20.pth.tar
 |-- data
     |-- panoptic-toolbox
         |-- data
@@ -76,6 +79,7 @@ ${POSE_ROOT}
             |-- ...
             |-- group_train_cam5_pseudo_hrnet_soft_9videos.pkl
             |-- group_train_cam5_pseudo_hrnet_hard_9videos.pkl
+            |-- group_validation_cam5_sub.pkl
 ```
 
 ## Training
