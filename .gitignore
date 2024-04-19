@@ -3,8 +3,8 @@ __pycache__/
 *.py[cod]
 old_results/
 *$py.class
-models/
-models/pose_resnet50_panoptic.pth.tar
+./models/
+./models/pose_resnet50_panoptic.pth.tar
 log
 run/test*
 output*
