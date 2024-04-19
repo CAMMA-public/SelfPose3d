@@ -28,7 +28,7 @@ def create_logger(cfg, cfg_name, phase='train'):
     # set up logger
     if not root_output_dir.exists():
         print('=> creating {}'.format(root_output_dir))
-        root_output_dir.mkdir()
+        root_output_dir.mkdir(parents=True)
 
     dataset = cfg.DATASET.TRAIN_DATASET
     model, _ = get_model_name(cfg)
