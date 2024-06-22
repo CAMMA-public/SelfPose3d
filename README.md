@@ -119,12 +119,13 @@ python -u tools/evaluate.py --cfg configs/panoptic_ssl/resnet50/cam5_posenet.yam
 ## Citation
 If you use our code or models in your research, please cite with:
 ```bibtex
-@inproceedings{SelfPose3d,
-    author={Srivastav, Vinkle and Chen, Keqi and Padoy, Nicolas},
-    title={SelfPose3d: Self-Supervised Multi-Person Multi-View 3d Pose Estimation},
+@InProceedings{Srivastav_2024_CVPR,
+    author    = {Srivastav, Vinkle and Chen, Keqi and Padoy, Nicolas},
+    title     = {SelfPose3d: Self-Supervised Multi-Person Multi-View 3d Pose Estimation},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
     month     = {June},
-    year      = {2024},    
+    year      = {2024},
+    pages     = {2502-2512}
 }
 ```
 
