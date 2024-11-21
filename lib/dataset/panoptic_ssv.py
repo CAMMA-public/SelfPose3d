@@ -119,9 +119,15 @@ class panopticSSV(JointsDatasetSSV):
             # assert info["sequence_list"] == self.sequence_list
             assert info["interval"] == self._interval
             # assert info["cam_list"] == self.cam_list
-            self.db = info["db"]
             for p in info["db"]:
                 p["image"] = os.path.join(ROOT, p["image"])
+            # self.db = info["db"]
+            self.db = []
+            for img_data in info["db"]:
+                seq_name = img_data['key'].rsplit('_', 3)[0]
+                if seq_name in self.sequence_list:
+                    self.db.append(img_data)
+
             print("=> self.db", len(self.db))
         else:
             # fix it later

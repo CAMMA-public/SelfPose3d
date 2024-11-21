@@ -128,6 +128,10 @@ python -u tools/train_3d.py --cfg configs/panoptic_ssl/resnet50/cam5_posenet.yam
 python -u tools/train_3d.py --cfg configs/panoptic_ssl/resnet50/cam5_posenet_finetune.yaml
 ```
 
+#### (Not Recommended) Subset training
+- If you want to conduct subset training with less sequences, you can go to `./lib/dataset/panoptic_ssv.py` and modify TRAIN_LIST. 
+- However, we do not recommend subset training from scratch because the backbone could be underfitting, resulting in poor pose estimation performance. See [issues](https://github.com/CAMMA-public/SelfPose3d/issues/7).
+
 ## Evaluation
 ### CMU Panoptic dataset
 ```
