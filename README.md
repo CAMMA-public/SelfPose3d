@@ -48,8 +48,27 @@ Sample output of __*SelfPose3d*__ showing the inference on the CMU panoptic data
 
 ### CMU Panoptic dataset
 1. Download the dataset by following the instructions in [panoptic-toolbox](https://github.com/CMU-Perceptual-Computing-Lab/panoptic-toolbox) and extract them under `${POSE_ROOT}/data/panoptic_toolbox/data`.
+- The sequences that we used are as follows:
+```
+|-- Train
+|   |-- 160422_ultimatum1
+|   |-- 160224_haggling1
+|   |-- 160226_haggling1
+|   |-- 161202_haggling1
+|   |-- 160906_ian1
+|   |-- 160906_ian2
+|   |-- 160906_ian3
+|   |-- 160906_band1
+|   |-- 160906_band2
+|-- Test
+|   |-- 160906_pizza1
+|   |-- 160422_haggling1
+|   |-- 160906_ian5
+|   |-- 160906_band4
+```
 - You can only download those sequences you need. You can also just download a subset of camera views by specifying the number of views (HD_Video_Number) and changing the camera order in `./scripts/getData.sh`. The sequences and camera views used in our project can be obtained from our paper.
 - Note that we only use HD videos,  calibration data, and 3D Body Keypoint in the codes. You can comment out other irrelevant codes such as downloading 3D Face data in `./scripts/getData.sh`.
+- To extract the images after downloading the videos, you can use `./scripts/hdImgsExtractor.sh`.
 2. Download the pretrained backbone model from [trained models and pseudo labels](https://github.com/CAMMA-public/SelfPose3d?tab=readme-ov-file#trained-models-and-pseudo-labels) and place it here: `${POSE_ROOT}/models/pose_resnet_50_384x288.pth`. 
 3. Download the pseudo 2d labels of CMU Panoptic dataset from [trained models and pseudo labels](https://github.com/CAMMA-public/SelfPose3d?tab=readme-ov-file#trained-models-and-pseudo-labels) and place them under: `${POSE_ROOT}/data/panoptic_toolbox/data`. 
 
@@ -72,7 +91,7 @@ ${POSE_ROOT}
 |-- data
     |-- panoptic-toolbox
         |-- data
-            |-- 16060224_haggling1
+            |-- 160224_haggling1
             |   |-- hdImgs
             |   |-- hdvideos
             |   |-- hdPose3d_stage1_coco19
