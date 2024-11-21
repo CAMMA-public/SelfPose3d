@@ -138,6 +138,17 @@ python -u tools/train_3d.py --cfg configs/panoptic_ssl/resnet50/cam5_posenet_fin
 python -u tools/evaluate.py --cfg configs/panoptic_ssl/resnet50/cam5_posenet.yaml --with-ssv --test-file models/cam5_posenet.pth.tar
 ```
 
+## Tips for custom dataset
+Currently, we do not support APIs for custom dataset training. If you want to use SelfPose3d on your own dataset, you need to do the following things:
+1. Generate 2d poses using any off-the-shelf pose detector and save the results as a pickle file with corresponding metadata. Please refer to the structure of the provided pickle file as an example. 
+2. Write your own dataset class under `./lib/dataset/`. 
+3. Write the config file. Most importantly, you need to adjust the following parameters. See [issues](https://github.com/microsoft/voxelpose-pytorch/issues/10).
+```
+config.MULTI_PERSON.SPACE_SIZE (The size of the 3d space)
+config.MULTI_PERSON.SPACE_CENTER (The position of the 3d space center)
+config.NETWORK.ROOTNET_SYN_RANGE (The relative space range to the 3d space center, where we generate the synthetic 3d root joints during root net training)
+```
+
 
 ## Citation
 If you use our code or models in your research, please cite with:

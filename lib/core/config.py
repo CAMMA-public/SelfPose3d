@@ -107,6 +107,7 @@ config.NETWORK.SINGLE_AUG_TRAINING_POSENET = False
 config.NETWORK.ROOT_CONSISTENCY_LOSS = True
 config.NETWORK.WEIGHT_ROOT_SYN = 100.0
 config.NETWORK.WEIGHT_ROOT_REG = 1.0
+config.NETWORK.ROOTNET_SYN_RANGE = np.array([[2500.0, -2000.0], [1500.0, -1500.0], [250.0, -300.0]])
 
 # pose_resnet related params
 config.POSE_RESNET = edict()

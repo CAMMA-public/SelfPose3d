@@ -78,6 +78,7 @@ class CuboidProposalNetSoft(nn.Module):
         self.rootnet_roothm = cfg.NETWORK.ROOTNET_ROOTHM
         self.rootnet_train_synth = cfg.NETWORK.ROOTNET_TRAIN_SYNTH
         self.max_num_people = cfg.MULTI_PERSON.MAX_PEOPLE_NUM
+        self.rootnet_syn_range = cfg.NETWORK.ROOTNET_SYN_RANGE
 
         self.project_layer = ProjectLayer(cfg)
         if self.rootnet_roothm:
@@ -100,9 +101,9 @@ class CuboidProposalNetSoft(nn.Module):
             grid1Dz = (
                 np.linspace(-space_size[2] / 2, space_size[2] / 2, cube_size[2]) + space_center[2]
             )
-            self.min_x, self.max_x = grid1Dx.min() + 2500, grid1Dx.max() - 2000
-            self.min_y, self.max_y = grid1Dy.min() + 1500, grid1Dy.max() - 1500
-            self.min_z, self.max_z = grid1Dz.min() + 250, grid1Dz.max() - 300
+            self.min_x, self.max_x = grid1Dx.min() + self.rootnet_syn_range[0][0], grid1Dx.max() + self.rootnet_syn_range[0][1]
+            self.min_y, self.max_y = grid1Dy.min() + self.rootnet_syn_range[1][0], grid1Dy.max() + self.rootnet_syn_range[1][1]
+            self.min_z, self.max_z = grid1Dz.min() + self.rootnet_syn_range[2][0], grid1Dz.max() + self.rootnet_syn_range[2][1]
             target = np.zeros(
                 (cfg.TRAIN.BATCH_SIZE, cube_size[0], cube_size[1], cube_size[2]), dtype=np.float32
             )
