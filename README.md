@@ -5,7 +5,7 @@
 </div>
 
 ## **SelfPose3d: Self-Supervised Multi-Person Multi-View 3d Pose Estimation**
-Vinkle Srivastav*, Keqi Chen*, Nicolas Padoy, CVPR 2024
+[Vinkle Srivastav](https://vinkle.github.io/)*, Keqi Chen*, Nicolas Padoy, CVPR 2024
 
 *equal contribution
 
